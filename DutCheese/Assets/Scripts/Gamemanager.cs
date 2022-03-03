@@ -7,17 +7,20 @@ public class Gamemanager : MonoBehaviour
 {
     private int m_KeysCollected;
     private int m_CheeseCollected;
-    private float m_Timer;
+    private float m_Time;
     private float m_TimeTo;
-    public static Gamemanager GM = null;
+
     private Coroutine m_Stopwatch;
+    private Coroutine m_Timer;
+    public Action OnTimerFinish;
+    public static Gamemanager GM = null;
 
     private void Awake()
     {
         if (GM == null)
         {
             GM = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);//Skip this for location since it shouldnt carry to other maps
         }
         else
         {
@@ -25,10 +28,52 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
+    public void CollectCheese()
+    {
+        m_CheeseCollected++;
+    }
+
+    private void InitiateLevel()
+    {
+    }
+
+    #region Timer
+
+    public void StartTimer(float _t)
+    {
+        StopAll();
+        SetTime(_t);
+        m_Timer = StartCoroutine(Timer(m_Time));
+    }
+
+    private void StopTimer()
+    {
+        if (m_Timer != null)
+        {
+            m_Time = 0;
+            StopCoroutine(m_Timer);
+            m_Timer = null;
+        }
+    }
+
+    private IEnumerator Timer(float _t)
+    {
+        while (m_Time > 0)
+        {
+            m_Time -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        m_Time = 0;
+        StopTimer();
+        OnTimerFinish?.Invoke();
+        yield break;
+    }
+
     public void StartStopwatch()
     {
         if (m_Stopwatch == null)
         {
+            StopAll();
             m_Stopwatch = StartCoroutine(Stopwatch());
         }
         else
@@ -50,18 +95,18 @@ public class Gamemanager : MonoBehaviour
 
     private IEnumerator Stopwatch()
     {
-        m_Timer = 0;
+        m_Time = 0;
         while (true)
         {
-            m_Timer += Time.deltaTime;
-            print("Timer: " + m_Timer);
+            m_Time += Time.deltaTime;
+            print("Timer: " + m_Time);
             yield return new WaitForEndOfFrame();
         }
     }
 
     public void ResetTime()
     {
-        m_Timer = 0;
+        m_Time = 0;
     }
 
     /// <summary>
@@ -70,11 +115,23 @@ public class Gamemanager : MonoBehaviour
     /// <param name="_time">Time in seconds</param>
     public void SetTime(float _time)
     {
-        m_Timer = _time;
+        m_Time = _time;
     }
 
     public float GetTime()
     {
-        return m_Timer;
+        return m_Time;
     }
+
+    private void StopAll()
+    {
+        if (m_Timer != null)
+            StopCoroutine(m_Timer);
+        if (m_Stopwatch != null)
+            StopCoroutine(m_Stopwatch);
+        m_Stopwatch = null;
+        m_Timer = null;
+    }
+
+    #endregion Timer
 }

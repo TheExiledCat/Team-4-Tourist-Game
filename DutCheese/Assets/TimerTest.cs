@@ -7,11 +7,14 @@ public class TimerTest : MonoBehaviour
 {
     [SerializeField] private TMP_Text m_TextBox;
     private bool started = false;
-    [SerializeField] private Button m_Button;
+    [SerializeField] private Button m_StopwatchButton;
+    [SerializeField] private Button m_TimerButton;
+    [SerializeField] private TMP_InputField m_TimerInput;
 
     private void Start()
     {
-        m_Button.onClick.AddListener(ToggleStopwatch);
+        m_StopwatchButton.onClick.AddListener(ToggleStopwatch);
+        m_TimerButton.onClick.AddListener(StartTimer);
     }
 
     private void ToggleStopwatch()
@@ -25,6 +28,12 @@ public class TimerTest : MonoBehaviour
         {
             Gamemanager.GM.StopStopwatch();
         }
+    }
+
+    private void StartTimer()
+    {
+        Gamemanager.GM.StartTimer(float.Parse(m_TimerInput.text));
+        print(float.Parse(m_TimerInput.text));
     }
 
     private void Update()

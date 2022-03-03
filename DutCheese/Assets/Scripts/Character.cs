@@ -9,6 +9,8 @@ public class Character : MonoBehaviour
     protected string m_MyName;
     [SerializeField]
     protected Sprite m_Icon;
+    [SerializeField]
+    string[] m_Dialogues;
 
     public string GetName()
     {

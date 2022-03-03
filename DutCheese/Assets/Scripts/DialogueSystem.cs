@@ -5,11 +5,6 @@ using UnityEngine.UI;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField]
-    Character m_RatKing;
-    [SerializeField]
-    string m_Text1 = "Hoi ik ben Rat king";
-
-    [SerializeField]
     float m_StandardDuration = 10;
     [SerializeField]
     CanvasGroup m_DialogueBox;
@@ -38,10 +33,5 @@ public class DialogueSystem : MonoBehaviour
         m_Dialogue.text = _text;
         ShowDialogueBox();
         Invoke("HideDialogueBox", _duration);
-    }
-
-    private void Start()
-    {
-        SetDialogue(m_RatKing, m_Text1, m_StandardDuration);
     }
 }

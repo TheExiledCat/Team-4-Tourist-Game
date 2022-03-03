@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Text1: Hoi ik ben Rat king
   m_StandardDuration: 10
   m_DialogueBox: {fileID: 176075224}
-  m_Name: {fileID: 1286953439}
+  m_Name: {fileID: 0}
   m_CharacterImage: {fileID: 1098345517}
   m_Dialogue: {fileID: 463381655}
 --- !u!114 &380719096
@@ -744,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025295884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 360.0261, y: 208.03258, z: -95.80723}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1037,7 +1037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311009308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 361.6, y: 208.03258, z: -95.80723}
+  m_LocalPosition: {x: -2.46, y: 0.67, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class Location : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    string m_LocationName;
+    [SerializeField]
+    Character m_RatKing;
+    [SerializeField]
+    string m_OnStartDialogue;
+
+    public static Location LC = null;
+    DialogueSystem m_DialogueSystem;
+
+    private void Awake()
     {
-        
+        if(LC == null)
+        {
+            LC = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        m_DialogueSystem.SetDialogue(m_RatKing, m_OnStartDialogue, 10);
     }
+
 }

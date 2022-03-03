@@ -1,20 +1,47 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField]
+    Character m_RatKing;
+    [SerializeField]
+    string m_Text1 = "Hoi ik ben Rat king";
+
+    [SerializeField]
+    float m_StandardDuration = 10;
+    [SerializeField]
     CanvasGroup m_DialogueBox;
+    [SerializeField]
+    TMP_Text m_Name;
+    [SerializeField]
+    Image m_CharacterImage;
+    [SerializeField]
+    TMP_Text m_Dialogue;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void ShowDialogueBox()
     {
-        
+        m_DialogueBox.alpha = 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HideDialogueBox()
     {
-        
+        m_DialogueBox.alpha = 0;
+    }
+
+    public void SetDialogue(Character _character, string _text, float _duration)
+    {
+        m_Name.text = _character.GetName();
+        m_CharacterImage.sprite = _character.GetIcon();
+        m_Dialogue.text = _text;
+        ShowDialogueBox();
+        Invoke("HideDialogueBox", _duration);
+    }
+
+    private void Start()
+    {
+        SetDialogue(m_RatKing, m_Text1, m_StandardDuration);
     }
 }

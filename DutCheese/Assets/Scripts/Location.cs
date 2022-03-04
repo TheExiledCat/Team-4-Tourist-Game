@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Location : MonoBehaviour
@@ -8,12 +6,11 @@ public class Location : MonoBehaviour
     string m_LocationName;
     [SerializeField]
     Character m_RatKing;
-    [SerializeField]
+    [SerializeField, TextArea]
     string m_OnStartDialogue;
 
     public static Location LC = null;
-    DialogueSystem m_DialogueSystem;
-
+    
     private void Awake()
     {
         if(LC == null)
@@ -28,7 +25,7 @@ public class Location : MonoBehaviour
 
     void Start()
     {
-        m_DialogueSystem.SetDialogue(m_RatKing, m_OnStartDialogue, 10);
+        DialogueSystem.DS.SetDialogue(m_RatKing, m_OnStartDialogue, 10);
     }
 
 }

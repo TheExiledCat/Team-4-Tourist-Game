@@ -371,6 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5727bc09f45f0a4fafdc1f4c41c5475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LocationName: Kasteel Valkenburg
+  m_RatKing: {fileID: 1311009311}
+  m_OnStartDialogue: waddafukisup
 --- !u!4 &248658737
 Transform:
   m_ObjectHideFlags: 0
@@ -417,11 +420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17037adafcc4714e9a310da47393ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RatKing: {fileID: 1311009311}
-  m_Text1: Hoi ik ben Rat king
   m_StandardDuration: 10
   m_DialogueBox: {fileID: 176075224}
-  m_Name: {fileID: 0}
+  m_Name: {fileID: 1286953439}
   m_CharacterImage: {fileID: 1098345517}
   m_Dialogue: {fileID: 463381655}
 --- !u!114 &380719096
@@ -652,6 +653,7 @@ GameObject:
   - component: {fileID: 1025295887}
   - component: {fileID: 1025295886}
   - component: {fileID: 1025295885}
+  - component: {fileID: 1025295890}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -671,8 +673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f42073c7f5307d40a78c17181183ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
   m_MyName: Player
   m_Icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Dialogues: []
 --- !u!136 &1025295886
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -750,6 +756,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1025295890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025295884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1098345515
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311009310}
   - component: {fileID: 1311009309}
+  - component: {fileID: 1311009312}
   - component: {fileID: 1311009311}
   m_Layer: 0
   m_Name: Rat King
@@ -1055,8 +1075,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b30ea1b70bf4049afc67be20a47436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1311009311}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: SetNextDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_MyName: Rat King
   m_Icon: {fileID: 21300000, guid: 21fa502bba85c6b4a948d50b37738ceb, type: 3}
+  m_Dialogues:
+  - bitches and hoes
+  - kitchen and toes
+  - itching and boast
+--- !u!65 &1311009312
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311009308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 50, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1448814499
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,11 +9,11 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField]
     CanvasGroup m_DialogueBox;
     [SerializeField]
-    TMP_Text m_Name;
+    TMP_Text m_NameText;
     [SerializeField]
     Image m_CharacterImage;
     [SerializeField]
-    TMP_Text m_Dialogue;
+    TMP_Text m_DialogueText;
 
     public static DialogueSystem DS = null;
 
@@ -41,9 +41,9 @@ public class DialogueSystem : MonoBehaviour
 
     public void SetDialogue(Character _character, string _text, float _duration)
     {
-        m_Name.text = _character.GetName();
+        m_NameText.text = _character.GetName();
         m_CharacterImage.sprite = _character.GetIcon();
-        m_Dialogue.text = _text;
+        m_DialogueText.text = _text;
         ShowDialogueBox();
         Invoke("HideDialogueBox", _duration);
     }

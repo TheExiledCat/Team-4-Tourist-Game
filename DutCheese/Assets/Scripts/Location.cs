@@ -5,7 +5,7 @@ public class Location : MonoBehaviour
     [SerializeField]
     string m_LocationName;
     [SerializeField]
-    Character m_RatKing;
+    Character m_Character;
     [SerializeField, TextArea]
     string m_OnStartDialogue;
 
@@ -25,7 +25,7 @@ public class Location : MonoBehaviour
 
     void Start()
     {
-        DialogueSystem.DS.SetDialogue(m_RatKing, m_OnStartDialogue, 10);
+        DialogueSystem.DS.SetDialogue(m_Character, m_OnStartDialogue, 10);
     }
 
 }

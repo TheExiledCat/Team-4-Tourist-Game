@@ -22,7 +22,7 @@ public class Gamemanager : MonoBehaviour
         if (GM == null)
         {
             GM = this;
-            DontDestroyOnLoad(gameObject);//Skip this for location since it shouldnt carry to other maps
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -12,6 +12,10 @@ public class Character : Clickable
 
     int m_DialogueIndex;
 
+    private void Start()
+    {
+        OnClick.AddListener(SetNextDialogue);
+    }
     public string GetName()
     {
         return m_MyName;

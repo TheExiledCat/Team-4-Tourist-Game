@@ -15,6 +15,19 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField]
     TMP_Text m_Dialogue;
 
+    public static DialogueSystem DS = null;
+
+    private void Awake()
+    {
+        if (DS == null)
+        {
+            DS = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void ShowDialogueBox()
     {

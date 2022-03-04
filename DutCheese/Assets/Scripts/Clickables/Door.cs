@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Door : Clickable
 {
     [SerializeField]
-    SpriteRenderer m_DoorImage;
+    SpriteRenderer m_DoorSpriteRenderer;
     [SerializeField]
     Sprite m_OpenDoor;
 
@@ -15,6 +15,6 @@ public class Door : Clickable
 
     public void OpenDoor()
     {
-        m_DoorImage.sprite = m_OpenDoor;
+        m_DoorSpriteRenderer.sprite = m_OpenDoor;
     }
 }

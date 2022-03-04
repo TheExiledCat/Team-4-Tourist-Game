@@ -41,6 +41,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void SetDialogue(Character _character, string _text, float _duration)
     {
+        CancelInvoke();
         m_NameText.text = _character.GetName();
         m_CharacterImage.sprite = _character.GetIcon();
         m_DialogueText.text = _text;

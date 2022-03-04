@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : Clickable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private InventoryItem m_MyItem = new InventoryItem("", null);
+    private void Start()
     {
-        
+        if (GetComponent<SpriteRenderer>() != null)
+            m_MyItem.m_Image = GetComponent<SpriteRenderer>().sprite;
     }
-
-    // Update is called once per frame
-    void Update()
+    protected override void OnMouseDown()
     {
-        
+        base.OnMouseDown();
+        Gamemanager.GM.CollectItem(new InventoryItem(m_MyItem.m_NameKey, m_MyItem.m_Image));
+        print("Found " + m_MyItem.m_NameKey);
+        Destroy(gameObject);
     }
 }

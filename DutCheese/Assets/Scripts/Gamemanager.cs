@@ -15,6 +15,8 @@ public class Gamemanager : MonoBehaviour
     public Action OnTimerFinish;
     public static Gamemanager GM = null;
 
+    [SerializeField] private List<Item> m_Items;
+
     private void Awake()
     {
         if (GM == null)
@@ -28,6 +30,11 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
+    private void CollectItem(Item _item)
+    {
+        m_Items.Add(_item);
+    }
+
     public void CollectCheese()
     {
         m_CheeseCollected++;
@@ -35,6 +42,9 @@ public class Gamemanager : MonoBehaviour
 
     private void InitiateLevel()
     {
+        m_CheeseCollected = 0;
+        m_KeysCollected = 0;
+        m_Items = new List<Item>();
     }
 
     #region Timer

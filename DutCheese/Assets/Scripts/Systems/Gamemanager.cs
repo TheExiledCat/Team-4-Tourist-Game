@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -15,8 +16,9 @@ public class Gamemanager : MonoBehaviour
     public Action OnTimerFinish;
     public static Gamemanager GM = null;
 
-    [SerializeField] private List<Item> m_Items;
-
+    public Dictionary<string, InventoryItem> m_Items = new Dictionary<string, InventoryItem>();
+    public event Action<Dictionary<string, InventoryItem>> OnItemUpdate;
+    public event Action OnTimerStart;
     private void Awake()
     {
         if (GM == null)
@@ -28,13 +30,27 @@ public class Gamemanager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //for testing purpose
+
+        StartTimer(70);
     }
 
-    private void CollectItem(Item _item)
+    public void CollectItem(InventoryItem _item)
     {
-        m_Items.Add(_item);
+        m_Items.Add(_item.m_NameKey, _item);
+        string debug = "";
+        foreach (KeyValuePair<string, InventoryItem> k in m_Items)
+        {
+            debug += k.Value.m_NameKey + "\n";
+        }
+        print(debug);
+        OnItemUpdate?.Invoke(m_Items);
     }
-
+    public void RemoveItem(string _nameKey)
+    {
+        m_Items.Remove(_nameKey);
+        OnItemUpdate?.Invoke(m_Items);
+    }
     public void CollectCheese()
     {
         m_CheeseCollected++;
@@ -44,7 +60,7 @@ public class Gamemanager : MonoBehaviour
     {
         m_CheeseCollected = 0;
         m_KeysCollected = 0;
-        m_Items = new List<Item>();
+        m_Items = new Dictionary<string, InventoryItem>();
     }
 
     #region Timer

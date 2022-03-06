@@ -4,17 +4,21 @@ using UnityEngine.UI;
 public class Door : Clickable
 {
     [SerializeField]
-    SpriteRenderer m_DoorSpriteRenderer;
+    private SpriteRenderer m_DoorSpriteRenderer;
+    [SerializeField] private Item m_RequiredItem;
+    private InventoryItem m_RequiredInventoryItem;
     [SerializeField]
-    Sprite m_OpenDoor;
+    private Sprite m_OpenDoor;
 
     private void Start()
     {
         OnClick.AddListener(OpenDoor);
+        m_RequiredInventoryItem = new InventoryItem(m_RequiredItem.GetItem().m_NameKey, m_RequiredItem.GetItem().m_Image);
     }
 
     public void OpenDoor()
     {
-        m_DoorSpriteRenderer.sprite = m_OpenDoor;
+        if (Gamemanager.GM.HasItem(m_RequiredInventoryItem.m_NameKey))
+            m_DoorSpriteRenderer.sprite = m_OpenDoor;
     }
 }

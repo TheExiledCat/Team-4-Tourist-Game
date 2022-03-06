@@ -8,9 +8,10 @@ public class Gamemanager : MonoBehaviour
 {
     private int m_KeysCollected;
     private int m_CheeseCollected;
-    private float m_Time;
+    private int m_CheeseLeft;
+    private float m_Time = 0;
     private float m_TimeTo;
-
+    private bool m_GameStarted = false;
     private Coroutine m_Stopwatch;
     private Coroutine m_Timer;
     public Action OnTimerFinish;
@@ -33,8 +34,13 @@ public class Gamemanager : MonoBehaviour
         //for testing purpose
 
         StartTimer(70);
+        InitiateLevel();
     }
-
+    private void Update()
+    {
+        m_CheeseLeft = GameObject.FindObjectsOfType<Cheese>().Length;
+        CheckWin();
+    }
     public void CollectItem(InventoryItem _item)
     {
         m_Items.Add(_item.m_NameKey, _item);
@@ -62,7 +68,28 @@ public class Gamemanager : MonoBehaviour
         m_KeysCollected = 0;
         m_Items = new Dictionary<string, InventoryItem>();
     }
-
+    private void CheckWin()
+    {
+        if (m_CheeseLeft == 0)
+        {
+            WinGame();
+        }
+    }
+    private void WinGame()
+    {
+        print("Game Won");
+    }
+    private void LoseGame()
+    {
+    }
+    public bool HasItem(string _itemName)
+    {
+        if (m_Items.ContainsKey(_itemName))
+        {
+            return true;
+        }
+        return false;
+    }
     #region Timer
 
     public void StartTimer(float _t)

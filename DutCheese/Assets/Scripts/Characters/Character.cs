@@ -8,9 +8,9 @@ public class Character : Clickable
     [SerializeField]
     protected Sprite m_Icon;
     [SerializeField]
-    string[] m_Dialogues;
+    private string[] m_Dialogues;
 
-    int m_DialogueIndex;
+    private int m_DialogueIndex;
 
     private void Start()
     {
@@ -40,9 +40,12 @@ public class Character : Clickable
 
     public void SetNextDialogue()
     {
-        var currentCharacter = GetComponent<Character>();
-        var nextDialogue = m_Dialogues[m_DialogueIndex];
-        DialogueSystem.DS.SetDialogue(currentCharacter, nextDialogue, 5);
-        IterateDialogue();
+        if (m_Dialogues.Length > 0)
+        {
+            var currentCharacter = this;
+            var nextDialogue = m_Dialogues[m_DialogueIndex];
+            DialogueSystem.DS.SetDialogue(currentCharacter, nextDialogue, 5);
+            IterateDialogue();
+        }
     }
 }

@@ -18,4 +18,8 @@ public class Item : Clickable
         print("Found " + m_MyItem.m_NameKey);
         Destroy(gameObject);
     }
+    public InventoryItem GetItem()
+    {
+        return m_MyItem;
+    }
 }

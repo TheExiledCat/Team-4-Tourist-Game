@@ -7,7 +7,7 @@ public class Location : MonoBehaviour
     [SerializeField]
     Character m_LocationCharacter;
     [SerializeField, TextArea]
-    string[] m_OnStartDialogue;
+    string m_OnStartDialogue;
 
     public static Location LC = null;
     
@@ -25,7 +25,7 @@ public class Location : MonoBehaviour
 
     void Start()
     {
-        DialogueSystem.DS.SetDialogue(m_LocationCharacter, m_OnStartDialogue[0], 10);
+        DialogueSystem.DS.SetDialogue(m_LocationCharacter, m_OnStartDialogue, 10);
     }
 
 }

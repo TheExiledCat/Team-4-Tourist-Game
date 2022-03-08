@@ -7,7 +7,7 @@ public class Character : Clickable
     protected string m_MyName;
     [SerializeField]
     protected Sprite m_Icon;
-    [SerializeField]
+    [SerializeField, TextArea]
     private string[] m_Dialogues;
 
     private int m_DialogueIndex;

@@ -2353,8 +2353,34 @@ PrefabInstance:
       value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
       propertyPath: m_OnStartDialogue.Array.data[0]
       value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[0]
+      value: Jester you fool, I have had enough of your stupid dances. I need some
+        real entertainment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[1]
+      value: 'HEY YOU... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[2]
+      value: Yes you, you will be my new jester. Entertain me and earn my trust.
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[3]
+      value: If you are unable to make me laugh I shall keep you here forever.
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[4]
+      value: "Do you see that big door over there? This door has been closed for
+        a long long time and I am the only one with a key to open that door.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 5404855296918866602, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
       propertyPath: m_Name

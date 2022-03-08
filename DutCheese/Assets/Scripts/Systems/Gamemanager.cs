@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Gamemanager : MonoBehaviour
 {
     [SerializeField]
-    float m_TimeGained = 5;
+    private float m_TimeGained = 5;
     private int m_KeysCollected;
     public int m_CheeseCollected;
     private int m_CheeseLeft;
@@ -41,6 +41,10 @@ public class Gamemanager : MonoBehaviour
     private void Update()
     {
         m_CheeseLeft = GameObject.FindObjectsOfType<Cheese>().Length;
+        if (m_Time == 0 && m_GameStarted == true)
+        {
+            LoseGame();
+        }
     }
     public void CollectItem(InventoryItem _item)
     {
@@ -78,6 +82,11 @@ public class Gamemanager : MonoBehaviour
     }
     private void LoseGame()
     {
+        print("Game Lost");
+    }
+    public void ToggleStart()
+    {
+        m_GameStarted = !m_GameStarted;
     }
     public bool HasItem(string _itemName)
     {
@@ -110,7 +119,11 @@ public class Gamemanager : MonoBehaviour
     {
         while (m_Time > 0)
         {
-            m_Time -= Time.deltaTime;
+            if (m_GameStarted)
+            {
+                m_Time -= Time.deltaTime;
+            }
+
             yield return new WaitForEndOfFrame();
         }
         m_Time = 0;

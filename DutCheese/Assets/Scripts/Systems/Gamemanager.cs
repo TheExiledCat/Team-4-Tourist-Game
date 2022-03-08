@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class Gamemanager : MonoBehaviour
 {
     [SerializeField]
-    private float m_TimeGained = 5;
+    private float m_TimeGained = 5, m_Timestart = 70;
     private int m_KeysCollected;
     public int m_CheeseCollected;
     private int m_CheeseLeft;
     private float m_Time = 0;
     private float m_TimeTo;
+    [SerializeField]
     private bool m_GameStarted = false;
     private Coroutine m_Stopwatch;
     private Coroutine m_Timer;
@@ -35,7 +36,6 @@ public class Gamemanager : MonoBehaviour
         }
         //for testing purpose
 
-        StartTimer(70);
         InitiateLevel();
     }
     private void Update()
@@ -72,6 +72,8 @@ public class Gamemanager : MonoBehaviour
     {
         m_CheeseCollected = 0;
         m_KeysCollected = 0;
+        StartTimer(m_Timestart);
+        m_GameStarted = false;
         m_Items = new Dictionary<string, InventoryItem>();
     }
 
@@ -83,6 +85,14 @@ public class Gamemanager : MonoBehaviour
     private void LoseGame()
     {
         print("Game Lost");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("Lose", true);
+        m_GameStarted = false;
+        Invoke("Reload", 3f);
+    }
+    private void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        InitiateLevel();
     }
     public void ToggleStart()
     {

@@ -607,29 +607,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1962271013}
     m_Modifications:
-    - target: {fileID: 122648446, guid: 9878d230791dc2f4398a88279add916d, type: 3}
-      propertyPath: m_RunInEditor
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 708888396076112617, guid: 9878d230791dc2f4398a88279add916d, type: 3}
       propertyPath: m_Name
       value: Rat King
       objectReference: {fileID: 0}
-    - target: {fileID: 708888396076112617, guid: 9878d230791dc2f4398a88279add916d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 708888396076112619, guid: 9878d230791dc2f4398a88279add916d, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 708888396076112619, guid: 9878d230791dc2f4398a88279add916d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.19756001
-      objectReference: {fileID: 0}
-    - target: {fileID: 708888396076112619, guid: 9878d230791dc2f4398a88279add916d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.19756001
       objectReference: {fileID: 0}
     - target: {fileID: 708888396076112619, guid: 9878d230791dc2f4398a88279add916d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2553,12 +2537,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
       propertyPath: m_OnStartDialogue
-      value: PeePeePooPoo
+      value: "Jester you fool, I\u2019ve had enough of your stupid dances. I need
+        some real entertainment."
       objectReference: {fileID: 0}
     - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
       propertyPath: m_LocationCharacter
       value: 
       objectReference: {fileID: 1557529132}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogue.Array.size
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogue.Array.data[0]
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[0]
+      value: Jester you fool, I have had enough of your stupid dances. I need some
+        real entertainment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[1]
+      value: 'HEY YOU... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[2]
+      value: Yes you, you will be my new jester. Entertain me and earn my trust.
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[3]
+      value: If you are unable to make me laugh I shall keep you here forever.
+      objectReference: {fileID: 0}
+    - target: {fileID: 663921706659367760, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
+      propertyPath: m_OnStartDialogues.Array.data[4]
+      value: "Do you see that big door over there? This door has been closed for
+        a long long time and I am the only one with a key to open that door.\r"
+      objectReference: {fileID: 0}
     - target: {fileID: 5404855296918866602, guid: 988294444157de1479dd41cdfc71a8ab, type: 3}
       propertyPath: m_Name
       value: Location Manager

@@ -19,6 +19,9 @@ public class Door : Clickable
     public void OpenDoor()
     {
         if (Gamemanager.GM.HasItem(m_RequiredInventoryItem.m_NameKey))
+        {
             m_DoorSpriteRenderer.sprite = m_OpenDoor;
+            Gamemanager.GM.WinGame();
+        }
     }
 }

@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Gamemanager : MonoBehaviour
 {
+    [SerializeField]
+    float m_TimeGained = 5;
     private int m_KeysCollected;
-    private int m_CheeseCollected;
+    public int m_CheeseCollected;
     private int m_CheeseLeft;
     private float m_Time = 0;
     private float m_TimeTo;
@@ -39,7 +41,6 @@ public class Gamemanager : MonoBehaviour
     private void Update()
     {
         m_CheeseLeft = GameObject.FindObjectsOfType<Cheese>().Length;
-        CheckWin();
     }
     public void CollectItem(InventoryItem _item)
     {
@@ -60,6 +61,7 @@ public class Gamemanager : MonoBehaviour
     public void CollectCheese()
     {
         m_CheeseCollected++;
+        m_Time += m_TimeGained;
     }
 
     private void InitiateLevel()
@@ -68,16 +70,11 @@ public class Gamemanager : MonoBehaviour
         m_KeysCollected = 0;
         m_Items = new Dictionary<string, InventoryItem>();
     }
-    private void CheckWin()
-    {
-        if (m_CheeseLeft == 0)
-        {
-            WinGame();
-        }
-    }
-    private void WinGame()
+
+    public void WinGame()
     {
         print("Game Won");
+        //close scene
     }
     private void LoseGame()
     {

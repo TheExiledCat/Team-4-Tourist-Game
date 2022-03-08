@@ -10,7 +10,8 @@ public class GameUIDisplay : MonoBehaviour
     [SerializeField]
     private RectTransform m_InventoryOrigin;
     private float m_Distance = 1920 / 20;
-    private float m_ItemWidth = 80, m_ItemHeight = 80;
+    [SerializeField]
+    private float m_ItemWidth = 150;
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,6 +21,7 @@ public class GameUIDisplay : MonoBehaviour
     private void Update()
     {
         ShowTimeInFormat(Gamemanager.GM.GetTime());
+        m_Cheese.text = "x" + Gamemanager.GM.m_CheeseCollected.ToString();
     }
 
     private void ShowTimeInFormat(float _time)
@@ -49,9 +51,12 @@ public class GameUIDisplay : MonoBehaviour
         {
             GameObject item = new GameObject("Item: " + k.Key);
             RectTransform rt = item.AddComponent<RectTransform>();
-            rt.sizeDelta = new Vector2(m_ItemWidth, m_ItemHeight);
+            Debug.Log(rt.sizeDelta);
+            double ratio = rt.sizeDelta.y / rt.sizeDelta.x;
+            rt.sizeDelta = new Vector2(m_ItemWidth, m_ItemWidth * (float)ratio);
             item.transform.parent = m_InventoryOrigin;
             Image image = item.AddComponent<Image>();
+            image.preserveAspect = true;
             item.transform.localPosition = Vector2.right * i * m_Distance;
             image.sprite = k.Value.m_Image;
             i++;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapSelection : MonoBehaviour
 {
@@ -11,8 +12,25 @@ public class MapSelection : MonoBehaviour
     Transform m_CurrentPosition;
     float m_LerpTime = 5f;
     float m_CurrentLerpTime = 0f;
+    string m_SelectedScene;
 
-    public void PanToMainCamera()
+    public void SetSelectedScene(string selectedScene)
+    {
+        m_SelectedScene = selectedScene;
+    }
+
+    public void GoToSelectedScene()
+    {
+        //PanToMainCamera();
+        SceneManager.LoadScene(m_SelectedScene, LoadSceneMode.Single);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void PanToMainCamera()
     {
         Debug.Log("pan");
         m_CurrentPosition = m_CameraPosition.transform;

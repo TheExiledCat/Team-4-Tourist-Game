@@ -49,12 +49,6 @@ public class Gamemanager : MonoBehaviour
     public void CollectItem(InventoryItem _item)
     {
         m_Items.Add(_item.m_NameKey, _item);
-        string debug = "";
-        foreach (KeyValuePair<string, InventoryItem> k in m_Items)
-        {
-            debug += k.Value.m_NameKey + "\n";
-        }
-        print(debug);
         OnItemUpdate?.Invoke(m_Items);
     }
     public void RemoveItem(string _nameKey)

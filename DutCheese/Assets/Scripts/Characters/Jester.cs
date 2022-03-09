@@ -5,13 +5,13 @@ using UnityEngine;
 public class Jester : Character
 {
     [SerializeField]
-    GameObject m_Cheese;
+    private GameObject m_Cheese;
     [SerializeField]
-    Character m_RatKing;
+    private Character m_RatKing;
     [SerializeField]
-    GameObject m_Key;
-    Animator m_Anim;
-    [SerializeField] 
+    private GameObject m_Key;
+    private Animator m_Anim;
+    [SerializeField]
     private Item m_RequiredItem;
     private InventoryItem m_RequiredInventoryItem;
 
@@ -28,8 +28,12 @@ public class Jester : Character
         {
             m_Anim.SetBool("death", true);
             m_Cheese.SetActive(true);
-            m_Key.SetActive(true);
-            DialogueSystem.DS.SetDialogue(m_RatKing, "That was quite amusing, here have my shit", 7);
+            Invoke("ActivateKey", 2f);
         }
+    }
+    private void ActivateKey()
+    {
+        m_Key.SetActive(true);
+        DialogueSystem.DS.SetDialogue(m_RatKing, "That was quite amusing, here have my shit", 7);
     }
 }

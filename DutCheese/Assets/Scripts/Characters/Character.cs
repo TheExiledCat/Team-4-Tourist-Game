@@ -9,12 +9,20 @@ public class Character : Clickable
     protected Sprite m_Icon;
     [SerializeField, TextArea]
     private string[] m_Dialogues;
-
+    private bool m_Talking = false;
     private int m_DialogueIndex;
-
+    private Animator m_Anim;
+    private void Awake()
+    {
+        m_Anim = GetComponent<Animator>();
+    }
     private void Start()
     {
         OnClick.AddListener(SetNextDialogue);
+    }
+    private void Update()
+    {
+        m_Anim.SetBool("Talking", m_Talking);
     }
     public string GetName()
     {
@@ -45,7 +53,13 @@ public class Character : Clickable
             var currentCharacter = this;
             var nextDialogue = m_Dialogues[m_DialogueIndex];
             DialogueSystem.DS.SetDialogue(currentCharacter, nextDialogue, 5);
+            ToggleTalking();
+            Invoke("ToggleTalking", 5);
             IterateDialogue();
         }
+    }
+    private void ToggleTalking()
+    {
+        m_Talking = !m_Talking;
     }
 }

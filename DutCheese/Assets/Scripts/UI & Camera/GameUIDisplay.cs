@@ -9,13 +9,14 @@ public class GameUIDisplay : MonoBehaviour
     private TMP_Text m_Timer, m_Cheese;
     [SerializeField]
     private RectTransform m_InventoryOrigin;
-    private float m_Distance = 1920 / 20;
+    private float m_Distance = 1920 / 15;
     [SerializeField]
     private float m_ItemWidth = 150;
     // Start is called before the first frame update
     private void Start()
     {
         Gamemanager.GM.OnItemUpdate += ShowInventory;
+        m_Distance = m_ItemWidth + 10;
     }
 
     private void Update()
@@ -51,14 +52,14 @@ public class GameUIDisplay : MonoBehaviour
         {
             GameObject item = new GameObject("Item: " + k.Key);
             RectTransform rt = item.AddComponent<RectTransform>();
-            Debug.Log(rt.sizeDelta);
-            double ratio = rt.sizeDelta.y / rt.sizeDelta.x;
-            rt.sizeDelta = new Vector2(m_ItemWidth, m_ItemWidth * (float)ratio);
+            rt.sizeDelta = new Vector2(m_ItemWidth, rt.sizeDelta.y);
             item.transform.parent = m_InventoryOrigin;
+            print(rt.localScale);
             Image image = item.AddComponent<Image>();
             image.preserveAspect = true;
             item.transform.localPosition = Vector2.right * i * m_Distance;
             image.sprite = k.Value.m_Image;
+            rt.localScale = Vector3.one * 0.5f;
             i++;
         }
     }

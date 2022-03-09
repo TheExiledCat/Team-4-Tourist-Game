@@ -27,6 +27,7 @@ public class MapSelection : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log("quit");
         Application.Quit();
     }
 

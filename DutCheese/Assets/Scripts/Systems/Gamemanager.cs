@@ -68,7 +68,7 @@ public class Gamemanager : MonoBehaviour
         m_Time += m_TimeGained;
     }
 
-    private void InitiateLevel()
+    public void InitiateLevel()
     {
         m_CheeseCollected = 0;
         m_KeysCollected = 0;

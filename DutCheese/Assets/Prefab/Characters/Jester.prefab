@@ -151,7 +151,78 @@ MonoBehaviour:
   m_MyName: Jester
   m_Icon: {fileID: 0}
   m_Dialogues: []
+  m_Cheese: {fileID: 0}
+  m_RatKing: {fileID: 0}
+  m_Key: {fileID: 0}
   m_RequiredItem: {fileID: 0}
+--- !u!1 &5684572304473994403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8671422318900564529}
+  - component: {fileID: 6827366407180144185}
+  - component: {fileID: 1233478128909125961}
+  m_Layer: 0
+  m_Name: Character Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8671422318900564529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684572304473994403}
+  m_LocalRotation: {x: -0, y: 0.28986722, z: -0, w: 0.9570669}
+  m_LocalPosition: {x: -0.47161797, y: 0, z: -0.7071608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7119253632536848329}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6827366407180144185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684572304473994403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.6466084, y: 8.706335, z: 0}
+  m_Center: {x: 0.60472834, y: -8.291847, z: 0.84207404}
+--- !u!114 &1233478128909125961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684572304473994403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b30ea1b70bf4049afc67be20a47436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  m_MyName: Jester
+  m_Icon: {fileID: 21300000, guid: 00828837b6eb6134182a22fd33fb889e, type: 3}
+  m_Dialogues:
+  - The key to your strength hangs on the rope of your fears.
+  - The jack of all, master of none.
+  - "A jester unemployed is nobody\u2019s fool!"
+  - Despite my vanity, I fear for my sanity.
+  - "Don\u2019t mind the jester, do it yourself faster."
 --- !u!1 &7119253632536848331
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +252,7 @@ Transform:
   m_Children:
   - {fileID: 6975335295182479973}
   - {fileID: 8337798873185581021}
+  - {fileID: 8671422318900564529}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

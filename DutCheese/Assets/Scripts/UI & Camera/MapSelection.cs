@@ -23,6 +23,7 @@ public class MapSelection : MonoBehaviour
     {
         //PanToMainCamera();
         SceneManager.LoadScene(m_SelectedScene, LoadSceneMode.Single);
+        Gamemanager.GM.InitiateLevel();
     }
 
     public void QuitGame()

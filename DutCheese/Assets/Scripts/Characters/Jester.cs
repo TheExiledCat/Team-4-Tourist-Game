@@ -34,6 +34,6 @@ public class Jester : Character
     private void ActivateKey()
     {
         m_Key.SetActive(true);
-        DialogueSystem.DS.SetDialogue(m_RatKing, "That was quite amusing, here have my shit", 7);
+        DialogueSystem.DS.SetDialogue(m_RatKing, "MWOAHAHAHAHA! This was exactly what I needed. You are one funny little rat.", 7);
     }
 }

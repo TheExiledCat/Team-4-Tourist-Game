@@ -22,6 +22,7 @@ public class Character : Clickable
     }
     private void Update()
     {
+        if(m_Anim != null)
         m_Anim.SetBool("Talking", m_Talking);
     }
     public string GetName()
